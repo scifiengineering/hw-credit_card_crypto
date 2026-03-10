@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# The LuhnValidator module provides a method to validate credit card numbers using the Luhn algorithm.
 module LuhnValidator
   # Validates credit card number using Luhn Algorithm
   # arguments: none
@@ -6,6 +9,16 @@ module LuhnValidator
   def validate_checksum
     nums_a = number.to_s.chars.map(&:to_i)
 
-    # TODO: use the integers in nums_a to validate its last check digit
+    # Double every second digit from right (excluding check digit)
+    sum = nums_a.reverse.each_with_index.sum do |digit, index|
+      if index.odd?
+        doubled = digit * 2
+        doubled > 9 ? doubled - 9 : doubled
+      else
+        digit
+      end
+    end
+
+    (sum % 10).zero?
   end
 end
