@@ -3,6 +3,7 @@
 require_relative 'luhn_validator'
 require 'json'
 
+# Represents a credit card and related serialization/hash behaviors.
 class CreditCard
   include LuhnValidator
 

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Provides modern symmetric encryption/decryption helpers.
 module ModernSymmetricCipher
   def self.generate_new_key
     # TODO: Return a new key as a Base64 string
